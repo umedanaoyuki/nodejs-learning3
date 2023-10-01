@@ -32,16 +32,19 @@ app.get('/', function (req, res) {
                 'content-type': 'application/json'
             }, 
             body: JSON.stringify(data)
-        })
+        }).then(asyc function (res){
+            const data = await res.json();
+            console.log(data);
+        });
     }
-</script>
-    `);
-});
+    </script>
+    `);});
 
 app.post('/result', function (req, res) {
   const params = req.body;
   //フロントエンド側から送られたbodyの内容（JSON）を表示
   console.log(params);
+  res.json({msg: 'success'});
 });
 
 app.listen(PORT, function () {
