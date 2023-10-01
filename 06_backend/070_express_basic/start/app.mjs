@@ -5,7 +5,7 @@ const PORT = 8080
 const app = express();
 
 //post用
-app.use(express.urlencoded);
+app.use(express.urlencoded({extended: true}));
 
 app.get("/", function (req, res){
   res.send(`
