@@ -12,8 +12,16 @@ app.get("/", function (req, res){
       <input type="text" name="description">
       <input type="submit">
     </form>
-    `)
-})
+    `);
+});
+
+app.get('/result', function (req, res){
+  //queryに自動的にオブジェクトに展開されたものが入っている
+  const params = req.query;
+  console.log(params);
+});
+
+
 app.listen(PORT, () => {
 });
 
