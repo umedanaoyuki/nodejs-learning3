@@ -5,7 +5,8 @@ const PORT = 8080;
 const app = express();
 
 app.get('/', function(req, res) {
-    res.send('hello');
+    //JSONで表示させる
+    res.send({message: 'hello'});
 })
 
 app.listen(PORT, function() {
