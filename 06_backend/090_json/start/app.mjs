@@ -5,12 +5,14 @@ const PORT = 8080;
 const app = express();
 
 
+//サーバーからJSONを飛ばす実装
 app.get('/', function(req, res) {
     //JSONで表示させる(自動的にJSON stringifyにする)
     res.json({message: 'hello', number: 1, array: [
         'banana', 'orange', 1
         ]});
 });
+
 
 app.listen(PORT, function() {
     console.log(`Server start: http://localhost:${PORT}`)
