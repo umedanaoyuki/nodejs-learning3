@@ -1,5 +1,6 @@
 import * as http from 'http';
 import express from 'express';
+import products from "../../110_rest_api/end/api-routes/products.mjs";
 
 const PORT = 8080;
 const app = express();
@@ -46,7 +47,6 @@ app.post('/result', function (req, res) {
   console.log(params);
   res.json({msg: 'success'});
 });
-
 app.listen(PORT, function () {
   console.log(`Server start: http://localhost:${PORT}`);
 });

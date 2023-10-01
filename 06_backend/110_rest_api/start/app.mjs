@@ -22,6 +22,14 @@ app.post('/products', function (req, res){
   res.json(newProduct);
 });
 
+app.delete('/products/:id', function (req, res){
+  const deleteId = req.params.id;
+  products.splice(deleteId, 1);
+  console.log(products);
+  res.json({deleteId});
+});
+
+
 app.listen(PORT, function () {
   console.log(`Server start: http://localhost:${PORT}`);
 });
