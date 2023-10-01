@@ -4,6 +4,9 @@ import express from "express";
 const PORT = 8080
 const app = express();
 
+//post用
+app.use(express.urlencoded);
+
 app.get("/", function (req, res){
   res.send(`
     <a href="/result?param1=1&param2=2">Get Method Link</a>
@@ -18,6 +21,12 @@ app.get("/", function (req, res){
 app.get('/result', function (req, res){
   //queryに自動的にオブジェクトに展開されたものが入っている
   const params = req.query;
+  console.log(params);
+});
+
+app.post('/result', function (req, res){
+  //queryに自動的にオブジェクトに展開されたものが入っている
+  const params = req.body;
   console.log(params);
 });
 
