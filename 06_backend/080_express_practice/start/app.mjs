@@ -1,7 +1,10 @@
 import express from 'express';
+import products from "../../110_rest_api/end/api-routes/products.mjs";
 
 const PORT = 8080;
 const app = express();
+
+app.use(express.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
   res.send(`
@@ -19,3 +22,12 @@ app.get('/', function (req, res) {
     `);
 });
 
+app.post('/cart', function (req, res) {
+  const products = req.body.product;
+  // console.log('${}、商品2がカートに追加されました。');
+  console.log(products);
+  res.send(`${products[0]}、${products[1]}がカートに追加されました。`);
+})
+
+
+app.listen(PORT, () => {});
