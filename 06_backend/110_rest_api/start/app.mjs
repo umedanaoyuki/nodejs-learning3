@@ -49,8 +49,8 @@ app.post('/products', function (req, res){
   res.json(newProduct);
 });
 
-app.post('/update-product', function (req, res){
-  const targetProduct = products[req.body.id];
+app.patch('/products/:id', function (req, res){
+  const targetProduct = products[req.params.id];
   if (req.body.hasOwnProperty('name')) {
     targetProduct.name = req.body.name;
   }
