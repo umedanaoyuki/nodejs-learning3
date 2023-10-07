@@ -49,6 +49,19 @@ app.post('/products', function (req, res){
   res.json(newProduct);
 });
 
+app.post('/update-product', function (req, res){
+  const targetProduct = products[req.body.id];
+  if (req.body.hasOwnProperty('name')) {
+    targetProduct.name = req.body.name;
+  }
+  if (req.body.hasOwnProperty('price')) {
+    targetProduct.price = req.body.price
+  }
+  console.log(products);
+  res.json(targetProduct);
+});
+
+
 app.post('/delete-product', function (req, res){
   const deleteId = req.params.id;
   products.splice(deleteId, 1);
