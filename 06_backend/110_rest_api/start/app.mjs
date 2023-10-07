@@ -15,6 +15,13 @@ app.get('/products', function (req, res) {
   res.json(products);
 });
 
+app.get('/create-product', function (req, res) {
+  const newProduct = req.body;
+  products.push(newProduct);
+  console.log(products);
+  res.json(newProduct);
+});
+
 app.post('/products', function (req, res){
   const newProduct = req.body;
   products.push(newProduct);
@@ -22,7 +29,7 @@ app.post('/products', function (req, res){
   res.json(newProduct);
 });
 
-app.delete('/products/:id', function (req, res){
+app.post('/delete-product', function (req, res){
   const deleteId = req.params.id;
   products.splice(deleteId, 1);
   console.log(products);
