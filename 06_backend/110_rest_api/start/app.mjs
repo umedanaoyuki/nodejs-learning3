@@ -35,10 +35,11 @@ app.post('/delete-product', function (req, res) {
   console.log(products);
 });
 
-app.delete('/delete-product', function (req, res) {
-  const deleteId = req.body.id;
+app.delete('/products/:id', function (req, res) {
+  const deleteId = req.params.id;
   products.splice(deleteId,1);
   console.log(products);
+  res.json({deleteId});
 });
 
 app.post('/products', function (req, res){
