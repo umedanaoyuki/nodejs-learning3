@@ -70,6 +70,15 @@ app.post('/delete-product', function (req, res){
 });
 
 
+app.get('/products/:id', function (req, res)
+{
+  const test = req.params.id;
+  console.log(test);
+  res.json(products[test]);
+});
+
+
+
 app.listen(PORT, function () {
   console.log(`Server start: http://localhost:${PORT}`);
 });
