@@ -15,7 +15,7 @@ app.get('/products', function (req, res) {
   res.json(products);
 });
 
-app.get('/create-product', function (req, res) {
+app.post('/create-product', function (req, res) {
   const newProduct = req.body;
   products.push(newProduct);
   console.log(products);
