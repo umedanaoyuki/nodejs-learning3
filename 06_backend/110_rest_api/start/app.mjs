@@ -22,7 +22,20 @@ app.post('/create-product', function (req, res) {
   res.json(newProduct);
 });
 
+app.post('/products', function (req, res) {
+  const newProduct = req.body;
+  products.push(newProduct);
+  console.log(products);
+  res.json(newProduct);
+});
+
 app.post('/delete-product', function (req, res) {
+  const deleteId = req.body.id;
+  products.splice(deleteId,1);
+  console.log(products);
+});
+
+app.delete('/delete-product', function (req, res) {
   const deleteId = req.body.id;
   products.splice(deleteId,1);
   console.log(products);
